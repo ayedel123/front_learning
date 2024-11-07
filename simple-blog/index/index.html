@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Blog</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+
+    <body>
+        <header>
+            <h1>GBU BDD</h1>
+        </header>
+
+        <!-- <div class="seelct-wrapper">
+            <label for="post-count-selector">Показать:</label>
+
+            <select name="post-select" id="post-count-selector">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="all">All</option>
+            </select>
+        </div> -->
+        <section class="pagination">
+            <div class="pagination-elements">
+                <button class="pagination-button" id="pg-start-button">
+                    <
+                </button>
+                <div id="pagination-buttons-container"></div>
+                <button class="pagination-button" id="pg-end-button">></button>
+            </div>
+        </section>
+        <div class="main">
+            <section class="posts-section">
+                <div class="post-grid" id="post-grid-1">
+                    <template class="post-template" id="post-template-0">
+                        <div class="post-wrapper">
+                            <div class="post-content">
+                                <span class="post-title"> Title </span>
+                                <p class="post-body">
+                                    Lorem ipsum dolor sit, amet consectetur
+                                    adipisicing elit. Magnam libero, placeat
+                                    aperiam tempore quasi voluptates eum nulla.
+                                    Natus sapiente officiis impedit qui dolores
+                                    cupiditate, explicabo saepe in nisi magnam?
+                                    Nam!
+                                </p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </section>
+
+            <section class="pagination">
+                <div class="pagination-elements-bottom">
+                    <button class="pagination-button" id="pg-start-button-bottom">
+                        <
+                    </button>
+                    <div id="pagination-buttons-container-bottom"></div>
+                    <button class="pagination-button" id="pg-end-button-bottom">
+                        >
+                    </button>
+                </div>
+            </section>
+        </div>
+        <!-- <button id="show-more-button">Show more</button> -->
+    </body>
+
+    <script src="script.js"></script>
+</html>
