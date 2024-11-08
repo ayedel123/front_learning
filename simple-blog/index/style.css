@@ -13,6 +13,11 @@
     src: url("../res/pg-font/GrenzeGotisch.ttf");
 }
 
+@font-face {
+    font-family: oldRus;
+    src: url("../res/old-rus/GothicE\ Regular.ttf");
+}
+
 body {
     padding: 50px;
     padding-bottom: 0;
@@ -87,7 +92,7 @@ header h1 {
 }
 
 .pagination {
-  margin-top: 20px;
+    margin-top: 20px;
     justify-self: center;
     position: relative;
 }
@@ -106,7 +111,7 @@ header h1 {
     background-size: cover;
     background-position: center;
     height: 2500px;
-   width: 1900px; 
+    width: 1900px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -166,4 +171,51 @@ header h1 {
 
 #show-more-button {
     margin: 20px;
+}
+
+footer .gbu-bdd-logo {
+    margin-left: 10px;
+    font-family: royalFont;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    /* width: 100px; */
+    padding: 15px;
+}
+footer .gbu-bdd-logo-textwrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+footer .gbu-bdd-logo-img {
+    height: 150px;
+}
+
+footer .gbu-bdd-logo-text {
+    color: white;
+    font-size: 28px;
+    max-width: 28px;
+}
+
+footer p {
+    color: white;
+    margin-left: 100px;
+    margin-right: 70px;
+    font-size: 38px;
+    font-weight: 600;
+    text-align: right;
+    font-family: oldRus;
+}
+
+footer {
+    align-items: center;
+    margin-top: 150px;
+    border: solid 3px white;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(0, 0, 0);
+    width: 1320px;
+    height: 170px;
 }

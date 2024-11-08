@@ -196,7 +196,17 @@ function putPostsToGrid(postsInJson, startIndex) {
 // });
 
 function getPostOnClickListener(post) {
+
     return () => {
-        console.log(post.title);
+
+        // Кодируем заголовок поста в формат URL
+
+        const postTitleEncoded = encodeURIComponent(post.title);
+
+        // Открываем новую вкладку с нужным URL и передаем данные
+
+        window.open(`../post-detail/post-detail.html?title=${postTitleEncoded}`, '_blank');
+
     };
+
 }
