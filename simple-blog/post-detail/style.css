@@ -1,76 +1,158 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-size: large;
+@font-face {
+    font-family: royalFont;
+    src: url("../res/royal-font/Royal2-MOXe.ttf");
+}
 
+
+@font-face {
+    font-family: pgFont;
+    src: url("../res/pg-font/GrenzeGotisch.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 body {
-  display: flex;
-  flex-direction: column;
- 
-
-  margin: 0;
-  padding: 0;
-  gap: 50px;
+    display: flex;
+    height: 100vh;
+    background-color: #000000;
 }
 
 main {
-  padding-top: 300px;
-  background-image: url("../res/post-section-background.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 2200px;
-  width: 1800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    /* height: 100%; */
+
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+
+    flex-direction: row;
+
+    align-items: stretch;
 }
 
-/*  header {
-  background-image: url("../res/maxresdefault.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; 
-  background-position: center;
-
-  width: 100%;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.left-side,
+.right-side {
+    border: 1px solid white;
+    /* height: 870px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+    background-color: black;
+    width: 390px;
+    /* padding: 15px; */
+    gap: 15px;
 }
 
-header h1{
-  font-size: 48px;
+.left-side img,
+.right-side img {
+    width: 360px;
+    height: 360px;
+    padding: 15px;
+    border: 1px white solid;
 }
 
-.post-detail h1 {
-  font-size: 36px;
-  margin-bottom: 50px;
+.left-side h1,
+.right-side h1 {
+    font-family: royalFont;
+    color: white;
+    font-size: 152px;
 }
 
-.post-detail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 1100px;
-  padding: 50px;
-  
-  background-color: white;
-  border-radius: 24px;
-  box-shadow: 0px 20px 20px 20px #1515151f;
+.left-side h1 {
+    writing-mode: vertical-rl;
+    text-align: center;
+    transform: rotate(180deg);
+    margin-bottom: 50px;
+}
+
+.right-side h1 {
+    writing-mode: vertical-lr;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* .logo-text-wrapper {
+    text-align: center;
+    display: flex;
+    border: solid 1px white;
+    width: 350px;
+    align-items: stretch;
+} */
+
+.middle {
+    /* padding: 50px 20px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    border: solid 1px white;
+}
+
+.post-titile {
+    color: rgb(178, 39, 39);
+    padding: 50px;
+    border: solid 1px white;
+    font-family: pgFont;
+    font-size: 48px;
+    line-height: 50px;
+}
+
+.post-body {
+    padding: 20px;
+    /* border: solid 1px rgb(255, 255, 255); */
+    font-family: pgFont;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+footer .gbu-bdd-logo {
+    margin-left: 10px;
+    font-family: royalFont;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    /* width: 100px; */
+    padding: 15px;
+}
+footer .gbu-bdd-logo-textwrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+footer .gbu-bdd-logo-img {
+    height: 150px;
+}
+
+footer .gbu-bdd-logo-text {
+    color: white;
+    font-size: 28px;
+    max-width: 28px;
+}
+
+footer p {
+    color: white;
+    margin-left: 100px;
+    margin-right: 70px;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: right;
+    font-family: oldRus;
 }
 
 footer {
-  width: 100%;
-  height: 100px;
-  background-color: rgb(93, 93, 93);
-  margin-top: auto;
-} 
-*/
-
-
-
-p {
-  font-size: 24px;
-  font-weight: 500;
-} 
+    justify-self: end;
+    align-items: center;
+    margin-top: 150px;
+    border: solid 1px white;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(0, 0, 0);
+    /* width: 1320px; */
+    height: 170px;
+}

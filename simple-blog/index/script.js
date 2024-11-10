@@ -159,9 +159,7 @@ async function sendRequest(url) {
     }
 }
 
-async function getPostById(postId) {
-    return sendRequest(`${getPostsUrl}/${postId}`);
-}
+
 
 async function getPostsFromServer(limit, startIndex = 0) {
     if (limit === undefined) {
@@ -176,7 +174,7 @@ function putPostsToGrid(postsInJson, startIndex) {
         postGrid.innerHTML = "";
 
         const postsToDisplay = postsInJson.slice(startIndex);
-
+     
         postsToDisplay.forEach((post) => {
             const newPost = postTemplate.content.cloneNode(true);
             newPost.querySelector(".post-title").textContent =
@@ -196,17 +194,16 @@ function putPostsToGrid(postsInJson, startIndex) {
 // });
 
 function getPostOnClickListener(post) {
-
     return () => {
-
         // Кодируем заголовок поста в формат URL
 
-        const postTitleEncoded = encodeURIComponent(post.title);
+        const postIdEncoded = encodeURIComponent(post.id);
 
         // Открываем новую вкладку с нужным URL и передаем данные
 
-        window.open(`../post-detail/post-detail.html?title=${postTitleEncoded}`, '_blank');
-
+        window.open(
+            `../post-detail/post-detail.html?post-id=${postIdEncoded}`,
+            "_blank"
+        );
     };
-
 }
