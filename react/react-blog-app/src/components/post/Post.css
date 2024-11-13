@@ -1,0 +1,8 @@
+.Post{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: aquamarine;
+    border: 1px black;
+    border-style: dashed;
+}
