@@ -4,14 +4,13 @@ import { useState, useEffect, useRef } from "react";
 export default function PaginationButton({ props }) {
 
     const [index, setIndex] = useState(props.index);
-    const text = useRef("");;
+    const [text, setText] = useState(index + 1);
+
 
     useEffect(() => {
 
         if (props.isSideButton) {
-            (index == 1) ? text.current = ">>" : text.current("<<");
-        } else {
-            text.current = index + 1;
+            (index == 1) ? setText(">>") : setText("<<");
         }
         window.addEventListener("pgButtonPressedEvent", handlePaginationEvent);
         return () => {
@@ -22,9 +21,19 @@ export default function PaginationButton({ props }) {
     function handlePaginationEvent(event) {
         console.log("Pagination Button Pressed:", event.detail);
         if (props.isSideButton) return;
-        console.log(`text:${text.current} + event.detail.offset:${event.detail.offset} = ${parseInt(text.current) + event.detail.offset}`);
-        text.current = parseInt(text.current) + event.detail.offset;
-
+        if (event.detail.oldText == "<<") {
+            setText(text => (index + 1) + "");
+        }
+        else if (event.detail.oldText == ">>") {
+            setText(text => (index + 1 + props.pagesCount - props.buttonsCount) + "");
+           
+        }
+        else if (parseInt(event.detail.oldText) < event.detail.newPageNumber) {
+            setText(text => (parseInt(text) + 1) + "");
+        }
+        else if (parseInt(event.detail.oldText) > event.detail.newPageNumber) {
+            setText(text => (parseInt(text) - 1) + "");
+        }
 
     }
 
@@ -34,14 +43,13 @@ export default function PaginationButton({ props }) {
         if (!props.isSideButton) {
             switch (index) {
                 case 0:
-                    newPageNumber = (text.current == "1") ? text.current : text.current - 1;
+                    newPageNumber = (text == "1") ? text : text - 1;
                     break;
                 case props.buttonsCount - 1:
-                    console.log("Last");
-                    newPageNumber = (text.current == props.pagesCount) ? text.current : +text.current + 1;
+                    newPageNumber = (text == props.pagesCount) ? text : +text + 1;
                     break;
                 default:
-                    newPageNumber = text.current;
+                    newPageNumber = text;
                     break;
             }
         }
@@ -55,24 +63,6 @@ export default function PaginationButton({ props }) {
         return newPageNumber;
     }
 
-    function countOffset(newPageNumber) {
-        let offset = 0;
-        if (props.isSideButton && index == 0) {
-            offset = text.current - index - 1;
-        }
-        else if (props.isSideButton && index == 1) {
-            offset = props.pagesCount - text.current;
-        }
-        else if (parseInt(text.current) < newPageNumber) {
-            offset = 1;
-        }
-        else if (parseInt(text.current) > newPageNumber) {
-            offset = -1;
-        }
-        console.log("Offset", offset);
-        return offset;
-    }
-
     function handleClick() {
 
 
@@ -82,7 +72,7 @@ export default function PaginationButton({ props }) {
             detail: {
                 index: index,
                 isSideButton: props.isSideButton,
-                offset: countOffset(newPage),
+                oldText: text,
                 newPageNumber: newPage,
             },
             bubbles: true,
@@ -97,7 +87,7 @@ export default function PaginationButton({ props }) {
 
     return (
         <div className="PaginationButton">
-            <button onClick={handleClick}>{text.current}</button>
+            <button onClick={handleClick}>{text}</button>
         </div>
     );
 }

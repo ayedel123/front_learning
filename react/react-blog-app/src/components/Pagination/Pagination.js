@@ -9,8 +9,8 @@ export default function Pagination({ posts, postsPerPage }) {
     useEffect(() => {
 
         if (posts == null || posts.length === 0) {
-            setButtonsCount(1);
-            setPagesCount(1);
+            setButtonsCount(0);
+            setPagesCount(0);
         } else {
             setPagesCount(Math.ceil(posts.length / postsPerPage));
             if (pagesCount > 7) { setButtonsCount(7); } else
