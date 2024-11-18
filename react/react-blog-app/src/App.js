@@ -1,10 +1,13 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import PostsGrid  from "./components/posts_grid/PostsGrid";
+import PostsGrid from "./components/PostsGrid/PostsGrid";
+import Header from "./components/Header/Header"
+import Pagination from "./components/Pagination/Pagination";
 
 
 function App() {
   const [posts, setPosts] = useState(null);
+  const POSTS_PER_PAGE = 10;
 
   useEffect(() => {
     console.log("effect");
@@ -28,11 +31,11 @@ function App() {
     console.log("Posts updated:", posts);
   }, [posts]);
 
-  const currentDate = new Date();
   return (<div className="App">
-
-  <PostsGrid props={posts}/>
-
+    <Header props={"Posts List"} />
+    <Pagination posts={posts} postsPerPage={POSTS_PER_PAGE}  />
+    <PostsGrid props={{ posts: posts, postsPerPage: POSTS_PER_PAGE }} />
+    {/* <Pagination posts={posts} postsPerPage={POSTS_PER_PAGE}  /> */}
   </div>);
 }
 

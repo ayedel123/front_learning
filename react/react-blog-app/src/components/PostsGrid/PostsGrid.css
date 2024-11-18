@@ -1,4 +1,6 @@
 .PostsGrid{
     display: grid;
     grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 25px;
 }
