@@ -35,16 +35,4 @@ export default function PostsGrid({ props }) {
     </div>
   );
 
-  // return (
-  //   <div className="PostsGrid">
-  //     {props.posts.map((item, index) =>
-  //     (
-  //       <div key={index}>
-  //         <Post props={item} />
-  //       </div>)
-
-
-  //     )}
-  //   </div>
-  // );
 }

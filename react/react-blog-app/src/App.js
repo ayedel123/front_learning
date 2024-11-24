@@ -1,8 +1,8 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
-import PostsGrid from "./components/PostsGrid/PostsGrid";
-import Header from "./components/Header/Header"
-import Pagination from "./components/Pagination/Pagination";
+import PostsGrid from "./components/MainPage/PostsGrid/PostsGrid";
+import Header from "./components/MainPage/Header/Header"
+import Pagination from "./components/MainPage/Pagination/Pagination";
 
 
 function App() {
